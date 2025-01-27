@@ -8,5 +8,3 @@ const calcularPromedio = (numeros) => {
 };
 const listaNumeros = [1, 2, 3, 4, 5];
 const promedioNumeros = calcularPromedio(listaNumeros);
-
-console.log(promedioNumeros);
