@@ -38,9 +38,37 @@ const promedioNumeros = calcularPromedio(listaNumeros);
 
 ### Ejercicio 3:
 
-> Se añade descripción en el archivo, del objetivo del ejercicio. Al no tener enunciado se evalúa la funcionalidad del mismo.
+Se añade descripción en el archivo, del objetivo del ejercicio. Al no tener enunciado se evalúa la funcionalidad del mismo.
 
-> En el punto 3.1 se crea la función que se encarga de crear un path, cumpliendo con el objetivo del mismo. 
+ #### **3.1**
+Se crea la función que se encarga de crear un *Path*, o unión de elementos de un array, separados por slash, el último elemento separado por un punto. 
 
-``` // 'Downloads/Videos/capture.mp4 ```
+```js
+const input1 = [
+'Downloads',
+'Videos',
+'capture',
+'mp4',
+]
 
+'Downloads/Videos/capture.mp4
+```
+
+#### **3.2**
+
+Función que recibe numeros y los convierte a string separados por un guión.
+
+```js
+const input = 10;
+yourFunction(input); // '1-0'
+```
+
+#### **3.3**
+
+ Crear una función que convierta una cadena en reversible y nos devuelva delante la longitud de la misma.
+
+```js
+const input1 = 'string';
+// create your function here
+yourFunction(input); // '6 gnirts'
+```

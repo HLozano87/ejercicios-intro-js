@@ -42,3 +42,35 @@ const input3 = [
 ]
 
 createFullPath(input3) // 'programming/languages/easy/beginner/useful/pythonstuff.py'
+
+
+// Ejercicio 3.2
+
+const input = 10;
+
+// create your function here
+const toStringAndSeparate = (entry) => {
+    let result = entry.toString().split('').join('-')
+    return console.log(result);
+}
+    
+toStringAndSeparate(input)
+const secondInput = 1;
+toStringAndSeparate(secondInput); // '1'
+const thirdInput = 11234;
+toStringAndSeparate(thirdInput); // '1-1-2-3-4'
+
+// Ejercicio 3.3
+
+const toReverseModeAndLength = (word = String) => {
+    let reverseWord = word.split('').reverse().join('')
+    return console.log(`${reverseWord.length} ${reverseWord}`);
+}
+
+const inputStr1 = 'string';
+// create your function here
+toReverseModeAndLength(inputStr1); // '6 gnirts'
+const inputStr2 = 'variable';
+toReverseModeAndLength(inputStr2); // '8 elbairav'
+const inputStr3 = 'pointer';
+toReverseModeAndLength(inputStr3); // '7 retniop'
