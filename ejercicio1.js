@@ -9,5 +9,5 @@ const usuario = {
     searchActive: true,
 }
 
-const viewDateReact = alumni.temary[2].date
+const viewDateReact = usuario.temary[2].date
 console.log(viewDateReact);
