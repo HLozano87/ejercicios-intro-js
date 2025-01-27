@@ -36,3 +36,11 @@ const promedioNumeros = calcularPromedio(listaNumeros);
 ```
 ---
 
+### Ejercicio 3:
+
+> Se añade descripción en el archivo, del objetivo del ejercicio. Al no tener enunciado se evalúa la funcionalidad del mismo.
+
+> En el punto 3.1 se crea la función que se encarga de crear un path, cumpliendo con el objetivo del mismo. 
+
+``` // 'Downloads/Videos/capture.mp4 ```
+
