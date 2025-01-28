@@ -1,13 +1,22 @@
 
 const usuario = {
     userName: 'Hector',
-    userLastName: 'Lozano',
+    userSurname: 'Lozano',
     temary: [
-        {subject: 'NodeJS', date: '2025-03-10'},
+        {subject: 'Node.js', date: '2025-03-10'},
         {subject: 'Git', date: '2025-02-02'},
-        {subject: 'React', date: '2025-05-12'}],
+        {subject: 'React', date: '2025-05-12'},
+    ],
     searchActive: true,
 }
 
-const viewDateReact = usuario.temary[2].date
-console.log(viewDateReact);
+const getInfoDateTemary = (nameSubject) => {
+    const searchModule = usuario.temary.find(item => item.subject === nameSubject)
+    if (!searchModule) {
+        throw new Error(`${nameSubject} no es un nombre válido. Por favor, asegurese de introducir el nombre correctamente.`)
+    }
+    return searchModule.date
+}
+
+const showDateReact = getInfoDateTemary('React')
+console.log(showDateReact);
