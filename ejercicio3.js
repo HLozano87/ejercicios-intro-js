@@ -32,13 +32,13 @@ const input2 = [
 createFullPath(input2); // 'CodinGame/python.py'
 
 const input3 = [
-'programming',
-'languages',
-'easy',
-'beginner',
-'useful',
-'pythonstuff',
-'py',
+    'programming',
+    'languages',
+    'easy',
+    'beginner',
+    'useful',
+    'pythonstuff',
+    'py',
 ]
 
 createFullPath(input3) // 'programming/languages/easy/beginner/useful/pythonstuff.py'
