@@ -117,3 +117,22 @@ Hay que crear un archivo **transform.js** con la solución. Este archivo tiene q
 funciones que nos retornen los valores correctos. *NO USAR FOR NI WHILE*. Se trata de un
 ejercicio para practicar el uso de map y filter.
 
+### Ejercicio 5:
+
+Tenemos otro error que nuestro cliente nos pide arreglar. El cliente está pidiendo un usuario y nos dice que está usando el id correcto el 1. Pero que siempre le da undefined. Nos ha pasado el código que tenemos que revisar y arreglar. Para este problema crear un archivo llamado **bugAsync.js** con la solución.
+
+```js
+// Este programa simula una llamada asincrónica para obtener un usuario
+function obtenerUsuario(id) {
+    let usuario;
+    setTimeout(() => {
+        if (id === 1) {
+            usuario = { id: 1, nombre: 'John Doe' };
+        }
+    }, 2000);
+    return usuario;
+}
+const usuario = obtenerUsuario(1);
+console.log(usuario);
+```
+
