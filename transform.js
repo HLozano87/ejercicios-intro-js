@@ -11,7 +11,7 @@ const datos = [
     {
         id: 2,
         nombre: 'María',
-        habilidades: ['Python', 'SQL', 'Django'],
+        habilidades: ['Python', 'Java','SQL', 'Django'],
         proyectos: [
             { id: 3, nombre: 'Proyecto 3' },
             { id: 4, nombre: 'Proyecto 4' }
@@ -29,22 +29,18 @@ const datos = [
 ];
 
 
-const devsJS = (data) => {
-    const resultDevs = data.filter(skill =>  skill.habilidades.includes('JavaScript'))
-    return resultDevs 
-    //return JSON.stringify(resultDevs, null, 2) //-> en caso de querer que se vea en la web segun enunciado
-}
+const devsJS = (data) => (
+    data.filter(skill => skill.habilidades.includes('JavaScript'))
+)
 
 console.log(devsJS(datos));
 
 
-const namesProyects = (data) => {
-    const resultProyects = 
+const namesProyects = (data) => (
     data.map(proyect => proyect.proyectos.map(nameProyect => nameProyect.nombre))
     .join(',')
     .split(',')
-    return resultProyects
-}
+)
 
-console.log(namesProyects(datos));
+console.log(namesProyects(datos))
 
