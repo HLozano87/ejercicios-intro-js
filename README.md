@@ -136,3 +136,46 @@ const usuario = obtenerUsuario(1);
 console.log(usuario);
 ```
 
+### Ejercicio 6:
+
+#### ***KeepCoding PlayList:*** 
+
+Tenemos un cliente que tiene una página donde se pueden crear playlist según nuestros gustos. Pudiendo crear tantas listas como se desee, formadas por los siguientes campos.
+ * Nombre de la playlist
+    * Título
+    * Cantante
+    * Género
+    * Duración
+
+Podemos observar una imágen de ejemplo de la misma facilitada por el cliente.
+
+<br>
+
+<div align='center'> 
+    <img src = "./assets/playlist_example.png" alt="playlist" width=350 height= 500>
+</div>
+<br>
+
+> El cliente ha creado la maquetación y la lógica de los formularios e interacciones con
+botones de para ordenar, marcar como favorito y borrar. Sin embargo, necesita nuestra
+ayuda para manejar el estado o lógica de esta web.
+Para ello nos pide que creemos un estado en una función (usando cierres) que tenemos
+que exportar y se va a encargar de gestionar las funcionalidades de la app.
+Únicamente es necesario modificar este archivo. Éste se encuentra en la carpeta 
+**``playlist/js/playlist.js.``** 
+<br>
+
+Cada playlist tiene un nombre y un listado de canciones. 
+Las canciones tienen título,
+nombre del artista, género musical, duración en segundos y si es tú favorita.
+
+#### *En un comentario estaría la estructura de datos:*
+---
+
+<div align='center'>
+    <img src= "./assets/data_coment.png" alt="data" width= 500 heght= 400>
+</div>
+
+### Recomendación:
+> *Haz un **commit** cada vez que hagas uno de los puntos y por cada
+ ejercicio.*
