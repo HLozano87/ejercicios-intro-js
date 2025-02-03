@@ -27,13 +27,23 @@ const musicCatalog = () => {
    * Adds a new playlist to the catalog.
    * @param {string} playlistName - The name of the new playlist.
    */
-  const createPlaylist = (playlistName) => {};
+  const createPlaylist = (playlistName) => {
+    const newPlaylist = {
+      name: playlistName,
+      songs: [
+        {title: '', artist: '', genre: '', duration: 0, favorite: false},
+      ],
+    }
+    playlists = [...playlists, newPlaylist]
+  };
 
   /**
    * Gets all playlists in the catalog.
    * @returns {Playlist[]} The list of all playlists.
    */
-  const getAllPlaylists = () => {};
+  const getAllPlaylists = () => {
+    return playlists
+  };
 
   /**
    * Removes a playlist from the catalog.
@@ -77,3 +87,10 @@ const musicCatalog = () => {
 };
 
 export default musicCatalog
+
+// Prueba en consola
+const myRockList = musicCatalog()
+myRockList.createPlaylist('Rock')
+
+console.log(myRockList.getAllPlaylists());
+
