@@ -57,7 +57,20 @@ const musicCatalog = () => {
    * @param {{ title: string, artist: string, genre: string, duration: number }} song - The song to add to the playlist.
    * @throws {Error} If the playlist is not found.
    */
-  const addSongToPlaylist = (playlistName, song) => {};
+  const addSongToPlaylist = (playlistName, song) => {
+    try {
+      const playlist = playlists.find( nameList => nameList.name === playlistName );
+      
+      if (!playlist)
+        throw new Error (`Playlist ${playlistName} not found.`);
+
+      const addSongFavorite = {...song, favorite: false}
+      playlist.songs = [...playlist.songs, addSongFavorite];
+
+    } catch (error) {
+      console.error(`Error: ${error.message}`);
+    }
+  };
 
   /**
    * Removes a song from a specific playlist.
@@ -93,4 +106,30 @@ const myRockList = musicCatalog()
 myRockList.createPlaylist('Rock')
 
 console.log(myRockList.getAllPlaylists());
+
+// Remove Playlist
+console.log(myRockList.removePlaylist('Rock'));
+console.log('Borrado',myRockList,[0]);
+console.log(myRockList.getAllPlaylists());
+
+// Add Song Playlist
+const newPlaylist = musicCatalog();
+newPlaylist.createPlaylist('Classic Rock');
+
+console.log(newPlaylist.getAllPlaylists());
+
+try {
+  const newSong = {title: 'Thunderstruck', artist:'AC/DC', genre:'Rock', duration: 534};
+  const {title, artist, genre, duration} = newSong;
+  newPlaylist.addSongToPlaylist('Classic Rock', {title, artist, genre, duration});
+
+  const newSong2 = {title: 'Highwey to Hell', artist:'AC/DC', genre:'Rock', duration: 484} ;
+  newPlaylist.addSongToPlaylist('Classic Rock', newSong2);
+
+  const otherSong = {title: 'Meteora', artist:'Linkin Park', genre:'Rock', duration: 434};
+  newPlaylist.addSongToPlaylist('Gym', otherSong);
+}catch (error) {
+  console.error('Error:', error.message);
+}
+  
 
