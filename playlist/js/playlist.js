@@ -30,11 +30,9 @@ const musicCatalog = () => {
   const createPlaylist = (playlistName) => {
     const newPlaylist = {
       name: playlistName,
-      songs: [
-        {title: '', artist: '', genre: '', duration: 0, favorite: false},
-      ],
+      songs: [],
     }
-    playlists = [...playlists, newPlaylist]
+    playlists = [...playlists, newPlaylist];
   };
 
   /**
