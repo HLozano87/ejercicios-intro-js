@@ -62,13 +62,17 @@ const musicCatalog = () => {
   const addSongToPlaylist = (playlistName, song) => {
     try {
       const playlist = playlists.find( nameList => nameList.name === playlistName );
-      
       if (!playlist)
         throw new Error (`Playlist ${playlistName} not found.`);
-
+      
+      // copio la playlist original, añado la propiedad favorite en false y añado la cancion.
       const addSongFavorite = {...song, favorite: false}
-      playlist.songs = [...playlist.songs, addSongFavorite];
-      return playlist
+      const updateSongs = {
+        ...playlist,
+        songs: [...playlist.songs, addSongFavorite]};
+      playlists = playlists.map( soundList => 
+        soundList.name === playlistName ? updateSongs : soundList )
+      return updateSongs
 
     } catch (error) {
       console.error(`Error: ${error.message}`);
@@ -119,7 +123,7 @@ console.log(myRockList.removePlaylist('Rock2'),'borrado');
 
 // Add Song Playlist
 try {
-  //No solo sale en al final sino tambien al principio..., problema al copiar cancion nueva sobre la lista original, no esta creando una copia, sino que modifica la original.
+  
   const song = {title: 'Welcome to the jungle', artist: 'Guns N. Roses', genre: 'Rock', duration:  445};
   myRockList.addSongToPlaylist('Rock', song)
 
