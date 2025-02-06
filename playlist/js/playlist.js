@@ -33,6 +33,7 @@ const musicCatalog = () => {
       songs: [],
     }
     playlists = [...playlists, newPlaylist];
+    return newPlaylist
   };
 
   /**
@@ -49,6 +50,7 @@ const musicCatalog = () => {
    */
     const removePlaylist = (playlistName) => {
       playlists = playlists.filter( nameList => nameList.name !== playlistName )
+      return playlists
     };
 
   /**
@@ -66,9 +68,11 @@ const musicCatalog = () => {
 
       const addSongFavorite = {...song, favorite: false}
       playlist.songs = [...playlist.songs, addSongFavorite];
+      return playlist
 
     } catch (error) {
       console.error(`Error: ${error.message}`);
+      return null
     }
   };
 
@@ -99,37 +103,38 @@ const musicCatalog = () => {
   return { createPlaylist, addSongToPlaylist, removeSongFromPlaylist, sortSongs, getAllPlaylists, removePlaylist, favoriteSong };
 };
 
-export default musicCatalog
+export default musicCatalog;
 
 // Prueba en consola
-const myRockList = musicCatalog()
-myRockList.createPlaylist('Rock')
+const myRockList = musicCatalog();
 
+myRockList.createPlaylist('Rock');
+myRockList.createPlaylist('Rock2');
+
+// Muestra las playlists
 console.log(myRockList.getAllPlaylists());
 
 // Remove Playlist
-console.log(myRockList.removePlaylist('Rock'));
-console.log('Borrado',myRockList,[0]);
-console.log(myRockList.getAllPlaylists());
+console.log(myRockList.removePlaylist('Rock2'),'borrado');
 
 // Add Song Playlist
-const newPlaylist = musicCatalog();
-newPlaylist.createPlaylist('Classic Rock');
-
-console.log(newPlaylist.getAllPlaylists());
-
 try {
-  const newSong = {title: 'Thunderstruck', artist:'AC/DC', genre:'Rock', duration: 534};
-  const {title, artist, genre, duration} = newSong;
-  newPlaylist.addSongToPlaylist('Classic Rock', {title, artist, genre, duration});
+  //No solo sale en al final sino tambien al principio..., problema al copiar cancion nueva sobre la lista original, no esta creando una copia, sino que modifica la original.
+  const song = {title: 'Welcome to the jungle', artist: 'Guns N. Roses', genre: 'Rock', duration:  445};
+  myRockList.addSongToPlaylist('Rock', song)
 
-  const newSong2 = {title: 'Highwey to Hell', artist:'AC/DC', genre:'Rock', duration: 484} ;
-  newPlaylist.addSongToPlaylist('Classic Rock', newSong2);
+  myRockList.createPlaylist('Classic Rock');
+
+  let newSong = {title: 'Thunderstruck', artist:'AC/DC', genre:'Rock', duration: 534};
+  myRockList.addSongToPlaylist('Classic Rock', newSong);
+
+  newSong = {title: 'Highwey to Hell', artist:'AC/DC', genre:'Rock', duration: 484} ;
+  myRockList.addSongToPlaylist('Classic Rock', newSong);
 
   const otherSong = {title: 'Meteora', artist:'Linkin Park', genre:'Rock', duration: 434};
-  newPlaylist.addSongToPlaylist('Gym', otherSong);
-}catch (error) {
+  myRockList.addSongToPlaylist('Gym', otherSong);
+  
+  console.log(myRockList.getAllPlaylists())
+} catch (error) {
   console.error('Error:', error.message);
 }
-  
-
