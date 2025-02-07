@@ -63,7 +63,7 @@ const musicCatalog = () => {
     try {
       const playlist = playlists.find( ({ name }) => name === playlistName );
       if (!playlist) {
-        throw new Error (`Playlist ${playlistName} not found.`);
+        throw new Error (`Playlist "${playlistName}" not found.`);
       }
       
       // copio la playlist original, añado la propiedad favorite en false y añado la cancion.
@@ -75,7 +75,7 @@ const musicCatalog = () => {
       return updatePlaylist
 
     } catch (error) {
-      console.error(`Error: ${error.message}`);
+      console.error(`Error: \n${error.message}`);
       return null
     }
   };
@@ -86,7 +86,27 @@ const musicCatalog = () => {
    * @param {string} title - The title of the song to remove.
    * @throws {Error} If the playlist or song is not found.
    */
-  const removeSongFromPlaylist = (playlistName, title) => {};
+  const removeSongFromPlaylist = (playlistName, title) => {
+    try {
+      const playlist = playlists.find(({ name }) => name === playlistName );
+      if (!playlist) {
+        throw new Error (`Playlist "${playlistName}" not found.`);
+      }
+      const getTitle = playlist.songs.find(({ title: songTitle }) => songTitle === title)
+      if (!getTitle) {
+        throw new Error (`Title "${title}" not found in "${playlistName}".`);
+      }
+
+      const updateSong = playlist.songs.filter(song => song.title !== title);
+      const newListSong = {...playlist, songs: updateSong};
+      playlists = playlists.map(list => list.name === playlistName ? newListSong : list);
+      return newListSong
+            
+    } catch (error) {
+      console.error(`Error: \n${error.message}`);
+      return null
+    }
+  };
 
   /**
    * Marks a song as a favorite or removes the favorite status.
@@ -138,6 +158,9 @@ try {
   const otherSong = {title: 'Meteora', artist:'Linkin Park', genre:'Rock', duration: 434};
   myRockList.addSongToPlaylist('Gym', otherSong);
   
+  //Remove Song Playlist
+  myRockList.removeSongFromPlaylist('Classic Rock', 'Highwey to Hell');
+
   console.log(myRockList.getAllPlaylists());
 } catch (error) {
   console.error('Error:', error.message);
