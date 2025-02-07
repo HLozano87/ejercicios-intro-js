@@ -61,18 +61,19 @@ const musicCatalog = () => {
    */
   const addSongToPlaylist = (playlistName, song) => {
     try {
-      const playlist = playlists.find( nameList => nameList.name === playlistName );
-      if (!playlist)
+      const playlist = playlists.find( ({name}) => name === playlistName );
+      if (!playlist) {
         throw new Error (`Playlist ${playlistName} not found.`);
-      
+      }
       // copio la playlist original, añado la propiedad favorite en false y añado la cancion.
-      const addSongFavorite = {...song, favorite: false}
-      const updateSongs = {
+
+      const updatePlaylist = {
         ...playlist,
-        songs: [...playlist.songs, addSongFavorite]};
-      playlists = playlists.map( soundList => 
-        soundList.name === playlistName ? updateSongs : soundList )
-      return updateSongs
+        songs: [...playlist.songs, {...song, favorite: false}]
+      };
+      
+      playlists = playlists.map( soundList => soundList.name === playlistName ? updatePlaylist : soundList )
+      return updatePlaylist
 
     } catch (error) {
       console.error(`Error: ${error.message}`);
