@@ -33,7 +33,7 @@ const musicCatalog = () => {
       songs: [],
     }
     playlists = [...playlists, newPlaylist];
-    return newPlaylist
+    return newPlaylist;
   };
 
   /**
@@ -41,7 +41,7 @@ const musicCatalog = () => {
    * @returns {Playlist[]} The list of all playlists.
    */
   const getAllPlaylists = () => {
-    return playlists
+    return playlists;
   };
 
   /**
@@ -50,7 +50,7 @@ const musicCatalog = () => {
    */
     const removePlaylist = (playlistName) => {
       playlists = playlists.filter( nameList => nameList.name !== playlistName )
-      return playlists
+      return playlists;
     };
 
   /**
@@ -61,17 +61,16 @@ const musicCatalog = () => {
    */
   const addSongToPlaylist = (playlistName, song) => {
     try {
-      const playlist = playlists.find( ({name}) => name === playlistName );
+      const playlist = playlists.find( ({ name }) => name === playlistName );
       if (!playlist) {
         throw new Error (`Playlist ${playlistName} not found.`);
       }
+      
       // copio la playlist original, añado la propiedad favorite en false y añado la cancion.
-
       const updatePlaylist = {
         ...playlist,
         songs: [...playlist.songs, {...song, favorite: false}]
       };
-      
       playlists = playlists.map( soundList => soundList.name === playlistName ? updatePlaylist : soundList )
       return updatePlaylist
 
@@ -139,7 +138,7 @@ try {
   const otherSong = {title: 'Meteora', artist:'Linkin Park', genre:'Rock', duration: 434};
   myRockList.addSongToPlaylist('Gym', otherSong);
   
-  console.log(myRockList.getAllPlaylists())
+  console.log(myRockList.getAllPlaylists());
 } catch (error) {
   console.error('Error:', error.message);
 }
