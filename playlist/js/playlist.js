@@ -49,8 +49,12 @@ const musicCatalog = () => {
    * @param {string} playlistName - The name of the playlist to remove.
    */
     const removePlaylist = (playlistName) => {
+      const playlist = playlists.find(({ name }) => name === playlistName )
+      if (!playlist){
+        return null
+      }
       playlists = playlists.filter( nameList => nameList.name !== playlistName )
-      return playlists;
+      return `Borrado ${playlistName}`;
     };
 
   /**
@@ -139,7 +143,7 @@ myRockList.createPlaylist('Rock2');
 console.log(myRockList.getAllPlaylists());
 
 // Remove Playlist
-console.log(myRockList.removePlaylist('Rock2'),'borrado');
+console.log(myRockList.removePlaylist('Rock2'));
 
 // Add Song Playlist
 try {
