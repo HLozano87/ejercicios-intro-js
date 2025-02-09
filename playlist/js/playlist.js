@@ -117,8 +117,19 @@ const musicCatalog = () => {
    * @param {string} playlistName - The name of the playlist containing the song.
    * @param {string} title - The title of the song to mark as a favorite.
    */
-  const favoriteSong = (playlistName, title) => {};
-
+  const favoriteSong = (playlistName, title) => {
+    const playlist = playlists.find(( { name }) => name === playlistName);
+    if (!playlist) {
+      return null
+    }
+    const updateFavorite = playlist.songs.map( song => song.title === title ? {...song, favorite:true} : song );
+    const updateSong = {
+      ...playlist, 
+      songs: updateFavorite
+    };
+    playlists = playlists.map( soundList => soundList.name === playlistName ? updateSong : soundList );
+    return updateFavorite
+  };
   /**
    * Sorts songs in a specific playlist by a given criterion (title, artist, or duration).
    * @param {string} playlistName - The name of the playlist to sort songs in.
@@ -169,3 +180,7 @@ try {
 } catch (error) {
   console.error('Error:', error.message);
 }
+
+// Favorite Song
+console.log(myRockList.favoriteSong('Rock', 'Welcome to the jungle'));
+console.log(myRockList.getAllPlaylists());
