@@ -67,8 +67,8 @@ const toReverseModeAndLength = (word) => {
 }
 
 const inputStr1 = 'string';
-toReverseModeAndLength(inputStr1); // '6 gnirts'
+console.log(toReverseModeAndLength(inputStr1)); // '6 gnirts'
 const inputStr2 = 'variable';
-toReverseModeAndLength(inputStr2); // '8 elbairav'
+console.log(toReverseModeAndLength(inputStr2)); // '8 elbairav'
 const inputStr3 = 'pointer';
-toReverseModeAndLength(inputStr3); // '7 retniop'
+console.log(toReverseModeAndLength(inputStr3)); // '7 retniop'

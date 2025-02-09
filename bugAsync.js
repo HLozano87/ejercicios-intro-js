@@ -15,6 +15,10 @@ function obtenerUsuario(id) {
     
 }
 
-obtenerUsuario(3)
+obtenerUsuario(1)
+.then(usuario => console.log(usuario))
+.catch(error => console.error(`¡¡Error durante la busqueda!!\n ${error}`))
+
+obtenerUsuario(2)
 .then(usuario => console.log(usuario))
 .catch(error => console.error(`¡¡Error durante la busqueda!!\n ${error}`))
