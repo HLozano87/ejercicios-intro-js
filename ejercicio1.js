@@ -13,7 +13,7 @@ const usuario = {
 const getInfoDateTemary = (nameSubject) => {
     const searchModule = usuario.temary.find(item => item.subject === nameSubject)
     if (!searchModule) {
-        throw new Error(`${nameSubject} no es un nombre válido. Por favor, asegurese de introducir el nombre correctamente.`)
+        throw new Error(`${nameSubject} not found.`)
     }
     return searchModule.date
 }
