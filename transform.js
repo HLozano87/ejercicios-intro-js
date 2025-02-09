@@ -37,9 +37,7 @@ console.log(devsJS(datos));
 
 
 const namesProyects = (data) => (
-    data.map(proyect => proyect.proyectos.map(nameProyect => nameProyect.nombre))
-    .join(',')
-    .split(',')
+    data.flatMap(proyect => proyect.proyectos.flatMap(nameProyect => nameProyect.nombre))
 )
 
 console.log(namesProyects(datos))
