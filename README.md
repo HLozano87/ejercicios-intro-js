@@ -73,6 +73,8 @@ const input1 = 'string';
 yourFunction(input); // '6 gnirts'
 ```
 
+---
+
 ### Ejercicio 4:
 
 Nuestro cliente tiene un array de datos y nos ha pedido que saquemos la siguiente
@@ -117,6 +119,8 @@ Hay que crear un archivo **transform.js** con la solución. Este archivo tiene q
 funciones que nos retornen los valores correctos. *NO USAR FOR NI WHILE*. Se trata de un
 ejercicio para practicar el uso de map y filter.
 
+---
+
 ### Ejercicio 5:
 
 Tenemos otro error que nuestro cliente nos pide arreglar. El cliente está pidiendo un usuario y nos dice que está usando el id correcto el 1. Pero que siempre le da undefined. Nos ha pasado el código que tenemos que revisar y arreglar. Para este problema crear un archivo llamado **bugAsync.js** con la solución.
@@ -135,6 +139,8 @@ function obtenerUsuario(id) {
 const usuario = obtenerUsuario(1);
 console.log(usuario);
 ```
+
+---
 
 ### Ejercicio 6:
 
