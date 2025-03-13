@@ -64,7 +64,6 @@ const musicCatalog = () => {
    * @throws {Error} If the playlist is not found.
    */
   const addSongToPlaylist = (playlistName, song) => {
-    try {
       const playlist = playlists.find( ({ name }) => name === playlistName );
       if (!playlist) {
         throw new Error (`Playlist "${playlistName}" not found.`);
@@ -77,11 +76,6 @@ const musicCatalog = () => {
       };
       playlists = playlists.map( soundList => soundList.name === playlistName ? updatePlaylist : soundList )
       return updatePlaylist
-
-    } catch (error) {
-      console.error(`Error: \n${error.message}`);
-      return null
-    }
   };
 
   /**
@@ -91,7 +85,6 @@ const musicCatalog = () => {
    * @throws {Error} If the playlist or song is not found.
    */
   const removeSongFromPlaylist = (playlistName, title) => {
-    try {
       const playlist = playlists.find(({ name }) => name === playlistName );
       if (!playlist) {
         throw new Error (`Playlist "${playlistName}" not found.`);
@@ -105,11 +98,6 @@ const musicCatalog = () => {
       const newListSong = {...playlist, songs: updateSong};
       playlists = playlists.map(list => list.name === playlistName ? newListSong : list);
       return newListSong
-            
-    } catch (error) {
-      console.error(`Error: \n${error.message}`);
-      return null
-    }
   };
 
   /**
@@ -130,6 +118,7 @@ const musicCatalog = () => {
     playlists = playlists.map( soundList => soundList.name === playlistName ? updateSong : soundList );
     return updateFavorite
   };
+  
   /**
    * Sorts songs in a specific playlist by a given criterion (title, artist, or duration).
    * @param {string} playlistName - The name of the playlist to sort songs in.
