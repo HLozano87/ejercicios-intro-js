@@ -3,13 +3,13 @@ function obtenerUsuario(id) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if (!id || typeof id !== 'number') {
-                throw new Error('Debe introducir un número.')
+                return reject(new Error('Debe introducir un número.'))
             }
             if (id === 1) {
                 let usuario = { id: 1, nombre: 'John Doe' };
-                resolve(usuario)
+                return resolve(usuario)
             }
-            reject(`El id "${id}", no está asociado a ningún usuario.`)
+            return reject(`El id "${id}", no está asociado a ningún usuario.`)
         }, 2000);
     })
     
